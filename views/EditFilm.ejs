@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>titre:
+
+        <%= film.titre %>
+    </h1>
+    <h3>
+        Genre : <%= film.genre %>
+    </h3>
+    <h3>
+        Nombre de ventes : <%= film.nb_ventes %> places
+    </h3>
+
+    <p>
+        id:  <%= film._id %>
+    </p>
+    <h4>
+        <%= film.poster %>
+    </h4>
+  
+
+    <form action="/film/delete/<%= film.id %>?_method=DELETE" method="post">
+
+      <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" >Supprimer le film</button>
+    </form>
+</body>
+</html>

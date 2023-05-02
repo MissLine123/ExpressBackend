@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>titre:
+
+        <%= data.titre %>
+    </h1>
+    <h3>
+        Sous-titre : <%= data.soustitre %>
+    </h3>
+    <h3>
+        paragraphe : <%= data.para %> 
+    </h3>
+
+  <h1>Editer le post:</h1>  
+  <form action="/post/edit/<%= data.id %>?_method=PUT" method="post">
+    <label for="titre">titre</label>
+    <input type="text" name="titre" id="titre" value="<%= data.titre %>">
+<br>
+    <label for="soustitre">Sous-titre</label>
+    <input type="text" name="soustitre" id="soustitre" value="<%=data.soustitre %>">
+<br>
+    <label for="para">paragraphe</label>
+    <input type="text" name="para" id="para" value="<%=data.para %>">
+
+<br>
+
+    <input type="submit" value="Enregistrer un nouveau post">
+</form>
+   
+
+    <form action="/post/delete/<%= data.id %>?_method=DELETE" method="post">
+
+      <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" >Supprimer le post</button>
+    </form>
+
+    <form action="/post/edit/<%= data.id %>?_method=PUT" method="post">
+
+        <input type="hidden" name="_method" value="put">
+          <button type="submit" >Supprimer le post</button>
+      </form>
+</body>
+</html>
