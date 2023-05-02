@@ -222,7 +222,7 @@ app.put('/post/edit/:id', function (req, res) {
 //Modèle USER:
 
 //INSCRIPTION
-app.post('api/signup', function(req, res){
+app.post('/api/signup', function(req, res){
     const Data = new User({
         username: req.body.username,
         email: req.body.email,
@@ -230,10 +230,22 @@ app.post('api/signup', function(req, res){
         admin: false,
     })
     Data.save().then(()=>{
+        console.log("Utilisateur ajouté");
         res.redirect('/');
 
     }).catch(err => {console.log(err)});
 })
+
+//Affichage formulaire inscription
+app.get('/newUser', function(req, res){
+    res.render('Signup');
+})
+//Afichage formulaire de connexion
+app.get('/login', function(req, res){
+    res.render('Login');
+
+})
+
 
 var server = app.listen(5000, function(){
     console.log('server listening on port 5000');
